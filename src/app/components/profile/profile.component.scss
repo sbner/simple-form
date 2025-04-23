@@ -52,6 +52,12 @@
     }
   }
 
+  .required {
+    color: #ef4444;
+    font-size: 1.1em;
+    margin-left: 4px;
+  }
+
   button[type="submit"] {
     margin-top: 12px;
     padding: 12px 0;
@@ -68,6 +74,16 @@
     &:hover {
       background: linear-gradient(90deg, #1d4ed8 60%, #38bdf8 100%);
       transform: translateY(-2px) scale(1.02);
+    }
+
+    &:disabled {
+      background: #cbd5e1;
+      color: #64748b;
+      cursor: not-allowed;
+      box-shadow: none;
+      opacity: 0.85;
+      transform: none;
+      transition: background 0.2s, color 0.2s, opacity 0.2s;
     }
   }
 }

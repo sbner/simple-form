@@ -1,17 +1,17 @@
 <h2 id="companion-text" class="profile-form__desc">{{ label }}</h2>
 
-<form [formGroup]="profileForm" (ngSubmit)="submit()" class="profile-form">
+<form [formGroup]="profileForm" class="profile-form">
   <div>
-    <label for="name">Nome:</label>
+    <label for="name">Nome<span class="required">*</span></label>
     <input id="name" formControlName="name" required />
   </div>
   <div>
-    <label for="age">Data de Nascimento:</label>
+    <label for="age">Data de Nascimento <span class="required">*</span></label>
     <input id="age" formControlName="dateOfBirth" type="date" required />
   </div>
   <div>
-    <label for="email">Email:</label>
-    <input id="email" formControlName="email" placeholder="exemplo@email.com" required />
+    <label for="email">Email <span class="required">*</span></label>
+    <input id="email" type="email" formControlName="email" placeholder="exemplo@email.com" required />
   </div>
-  <button type="submit">Enviar</button>
+  <button type="submit" (click)="submit()" [disabled]="profileForm.invalid">Enviar</button>
 </form>

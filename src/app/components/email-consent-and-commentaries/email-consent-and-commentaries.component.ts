@@ -20,6 +20,8 @@ export class EmailConsentAndCommentariesComponent {
   });
 
   submit() {
-    this.buttonClick.emit(this.consentForm.value);
+    if (this.consentForm.valid) {
+      this.buttonClick.emit(this.consentForm.value);
+    }
   }
 }

@@ -6,6 +6,9 @@
     "start": "ng serve",
     "build": "ng build --base-href /simple-form/",
     "watch": "ng build --watch --configuration development",
+    "build:prod": "ng build --configuration production --base-href \"/simple-form/\"",
+    "deploy": "npx angular-cli-ghpages --dir=dist/simple-form/browser",
+    "build-and-deploy": "npm run build:prod && npm run deploy",
     "test": "ng test"
   },
   "private": true,
