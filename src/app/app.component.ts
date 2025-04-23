@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AllQuestionsComponent } from "./components/all-questions/all-questions.component";
@@ -10,7 +10,7 @@ import { ThankYouComponent } from './components/thank-you/thank-you.component';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [ReactiveFormsModule, ProfileComponent, AllQuestionsComponent, CommonModule, EmailConsentAndCommentariesComponent, ThankYouComponent],
+  imports: [ReactiveFormsModule, ProfileComponent, AllQuestionsComponent, CommonModule, EmailConsentAndCommentariesComponent, ThankYouComponent, NgOptimizedImage],
 })
 export class AppComponent {
   title = 'simple-form';
