@@ -2,15 +2,15 @@
 
 <form [formGroup]="profileForm" (ngSubmit)="submit()" class="profile-form">
   <div>
-    <label for="name">Nome:</label>
+    <label for="name">Nome<span class="required">*</span></label>
     <input id="name" formControlName="name" required />
   </div>
   <div>
-    <label for="age">Data de Nascimento:</label>
+    <label for="age">Data de Nascimento <span class="required">*</span></label>
     <input id="age" formControlName="dateOfBirth" type="date" required />
   </div>
   <div>
-    <label for="email">Email:</label>
+    <label for="email">Email <span class="required">*</span></label>
     <input id="email" formControlName="email" placeholder="exemplo@email.com" required />
   </div>
   <button type="submit">Enviar</button>

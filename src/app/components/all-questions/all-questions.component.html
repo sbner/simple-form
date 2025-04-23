@@ -3,7 +3,8 @@
 <form [formGroup]="allQuestionsForm" (ngSubmit)="submit()" class="all-questions__form">
     <div class="all-questions__group">
         <label class="all-questions__label" for="everWorried">
-            Você já se preocupou em receber notícias falsas (fake news) pela internet? *
+            Você já se preocupou em receber notícias falsas (fake news) pela internet? 
+            <span class="required">*</span>
         </label>
         <div class="all-questions__options">
             <label>
@@ -23,7 +24,8 @@
 
     <div class="all-questions__group">
         <label class="all-questions__label" for="fakeNewsFrequency">
-            Com que frequência você verifica se uma notícia é verdadeira antes de compartilhar? *
+            Com que frequência você verifica se uma notícia é verdadeira antes de compartilhar? 
+            <span class="required">*</span>
         </label>
         <div class="all-questions__options">
             <label>
@@ -48,7 +50,8 @@
     <div class="all-questions__group">
         <label class="all-questions__label" for="interestedInAI">
             Você teria interesse em usar uma ferramenta que identifica automaticamente fake news usando inteligência
-            artificial? *
+            artificial? 
+            <span class="required">*</span>
         </label>
         <div class="all-questions__options">
             <label>
@@ -68,7 +71,8 @@
 
     <div class="all-questions__group">
         <label class="all-questions__label">
-            Quais funcionalidades você considera mais importantes em uma ferramenta de verificação de notícias? *<br>
+            Quais funcionalidades você considera mais importantes em uma ferramenta de verificação de notícias? 
+            <span class="required">*</span><br>
             <small>(Selecione pelo menos uma opção)</small>
         </label>
         <div class="all-questions__options">
@@ -115,7 +119,8 @@
 
     <div class="all-questions__group">
         <label class="all-questions__label">
-            Quais são seus maiores receios em relação ao uso de uma ferramenta de IA para verificação de notícias? *<br>
+            Quais são seus maiores receios em relação ao uso de uma ferramenta de IA para verificação de notícias? 
+            <span class="required">*</span><br>
             <small>(Selecione pelo menos uma opção)</small>
         </label>
         <div class="all-questions__options">
