@@ -1,11 +1,13 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-form">
+<h2 id="companion-text" class="profile-form__desc">{{ label }}</h2>
+
+<form [formGroup]="profileForm" (ngSubmit)="submit()" class="profile-form">
   <div>
     <label for="name">Nome:</label>
     <input id="name" formControlName="name" required />
   </div>
   <div>
     <label for="age">Data de Nascimento:</label>
-    <input id="age" formControlName="dateOfBirth" type="number" required />
+    <input id="age" formControlName="dateOfBirth" type="date" required />
   </div>
   <div>
     <label for="email">Email:</label>

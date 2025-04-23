@@ -1,23 +1,29 @@
-<div class="container">
-  <div class="header">
-    <img src="assets/logo.png" alt="LOW GO" />
+<div class="main-container">
+  <div class="main-header">
+    <!-- <img src="/src/assets/fake-news.jpg" alt="LOW GO" class="main-logo"/> -->
   </div>
-  <div class="content">
-    <h1 class="hero-title">Ferramenta de Verificação de Fake News com IA</h1>
+  <div class="main-content">
+    <h1 class="main-title">Ferramenta de Verificação de Fake News com IA</h1>
+
     <section>
-      <h2 class="impact-text">Ajude-nos a entender como podemos combater as fake news com tecnologia! Responda algumas
-        perguntas rápidas sobre
-        seus interesses e preocupações.</h2>
-        <button (click)="goToProfile()">Começar</button>
-    </section>
-    <section>
-      <app-profile></app-profile>
-      <app-all-questions></app-all-questions>  
-    </section>
-      <div class="footer">
-        <p>Desenvolvido por [Seu Nome] - [Ano]</p>
-        <p>GitHub: [Seu GitHub]</p>
-        <p>LinkedIn: [Seu LinkedIn]</p>
+      <div [ngSwitch]="steps[currentStep].id">
+        <div class="lading-screen" *ngSwitchCase="'landing-text'">
+          <h2 class="impact-text">
+            Ajude-nos a entender como podemos combater as fake news com
+            tecnologia! Responda algumas perguntas rápidas sobre seus interesses
+            e preocupações.
+          </h2>
+          <button id="start-button" type="submit" (click)="nextStep()">Começar</button>
+        </div>
+        <app-profile *ngSwitchCase="'profile'" [label]="steps[currentStep].label"
+          (buttonClick)="handleFormSubmit($event)"></app-profile>
+        <app-all-questions *ngSwitchCase="'all-questions'" [label]="steps[currentStep].label"
+          (buttonClick)="handleFormSubmit($event)"></app-all-questions>
+        <app-email-consent-and-commentaries *ngSwitchCase="'email-consent-and-commentaries'"
+          [label]="steps[currentStep].label"
+          (buttonClick)="handleFormSubmit($event)"></app-email-consent-and-commentaries>
+        <app-thank-you *ngSwitchCase="'thank-you'"></app-thank-you>
       </div>
+    </section>
   </div>
 </div>

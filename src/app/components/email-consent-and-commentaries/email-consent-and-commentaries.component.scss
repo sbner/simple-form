@@ -1,0 +1,134 @@
+.consent-form__desc {
+    max-width: 400px;
+    margin: 32px auto 0 auto;
+    padding: 0 24px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #2563eb;
+    text-align: center;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+    background: #e0e7ff;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 2px 12px 0 rgba(37, 99, 235, 0.05);
+  }
+  
+  .consent-form {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 32px 24px;
+    background: #f8fafc;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    .consent-form__question {
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 2px;
+      font-size: 1rem;
+  
+      .required {
+        color: #ef4444;
+        font-size: 1.1em;
+        margin-left: 4px;
+      }
+    }
+  
+    label {
+      font-weight: 600;
+      color: #374151;
+      font-size: 1rem;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  
+    // Radio group
+    > div > div {
+      flex-direction: row;
+      gap: 20px;
+  
+      label {
+        font-weight: 400;
+        color: #374151;
+        font-size: 1rem;
+        margin-bottom: 0;
+        gap: 4px;
+      }
+    }
+  
+    input[type="radio"] {
+      accent-color: #2563eb;
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+      &:focus {
+        outline: 2px solid #60a5fa;
+        outline-offset: 2px;
+      }
+    }
+  
+    textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1.5px solid #cbd5e1;
+      background: #fff;
+      font-size: 1rem;
+      resize: vertical;
+      min-height: 80px;
+      max-height: 200px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+  
+      &:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 2px #60a5fa44;
+      }
+    }
+  
+    .error {
+      color: #ef4444;
+      font-size: 0.95rem;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+  
+    button[type="submit"] {
+      margin-top: 12px;
+      padding: 12px 0;
+      background: linear-gradient(90deg, #2563eb 60%, #60a5fa 100%);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px 0 rgba(37, 99, 235, 0.08);
+      transition: background 0.2s, transform 0.1s;
+  
+      &:hover {
+        background: linear-gradient(90deg, #1d4ed8 60%, #38bdf8 100%);
+        transform: translateY(-2px) scale(1.02);
+      }
+  
+      &:disabled {
+        background: #cbd5e1;
+        color: #64748b;
+        cursor: not-allowed;
+        box-shadow: none;
+      }
+    }
+  }
+  
