@@ -3,104 +3,60 @@
 <form [formGroup]="allQuestionsForm" (ngSubmit)="submit()" class="all-questions__form">
     <div class="all-questions__group">
         <label class="all-questions__label" for="everWorried">
-            Você já se preocupou em receber notícias falsas (fake news) pela internet? 
+            Você já se preocupou em receber notícias falsas (fake news) pela internet?
             <span class="required">*</span>
         </label>
         <div class="all-questions__options">
-            <label>
-                <input type="radio" formControlName="everWorried" value="sim" required />
-                Sim
-            </label>
-            <label>
-                <input type="radio" formControlName="everWorried" value="nao" />
-                Não
-            </label>
-            <label>
-                <input type="radio" formControlName="everWorried" value="nao-sei" />
-                Não sei
+            <label *ngFor="let option of everWorriedOptions">
+                <input type="radio" formControlName="everWorried" [value]="option.value"
+                    [required]="option.value === 'sim'" />
+                {{ option.label }}
             </label>
         </div>
     </div>
 
     <div class="all-questions__group">
         <label class="all-questions__label" for="fakeNewsFrequency">
-            Com que frequência você verifica se uma notícia é verdadeira antes de compartilhar? 
+            Com que frequência você verifica se uma notícia é verdadeira antes de compartilhar?
             <span class="required">*</span>
         </label>
         <div class="all-questions__options">
-            <label>
-                <input type="radio" formControlName="fakeNewsFrequency" value="sempre" required />
-                Sempre
-            </label>
-            <label>
-                <input type="radio" formControlName="fakeNewsFrequency" value="as-vezes" />
-                Às vezes
-            </label>
-            <label>
-                <input type="radio" formControlName="fakeNewsFrequency" value="raramente" />
-                Raramente
-            </label>
-            <label>
-                <input type="radio" formControlName="fakeNewsFrequency" value="nunca" />
-                Nunca
+            <label *ngFor="let option of fakeNewsFrequencyOptions">
+                <input type="radio" formControlName="fakeNewsFrequency" [value]="option.value"
+                    [required]="option.value === 'sempre'" />
+                {{ option.label }}
             </label>
         </div>
+
     </div>
 
     <div class="all-questions__group">
         <label class="all-questions__label" for="interestedInAI">
             Você teria interesse em usar uma ferramenta que identifica automaticamente fake news usando inteligência
-            artificial? 
+            artificial?
             <span class="required">*</span>
         </label>
         <div class="all-questions__options">
-            <label>
-                <input type="radio" formControlName="interestedInAI" value="sim" required />
-                Sim
-            </label>
-            <label>
-                <input type="radio" formControlName="interestedInAI" value="nao" />
-                Não
-            </label>
-            <label>
-                <input type="radio" formControlName="interestedInAI" value="talvez" />
-                Talvez
+            <label *ngFor="let option of interestedInAIOptions">
+                <input type="radio" formControlName="interestedInAI" [value]="option.value"
+                    [required]="option.value === 'sim'" />
+                {{ option.label }}
             </label>
         </div>
+
     </div>
 
     <div class="all-questions__group">
         <label class="all-questions__label">
-            Quais funcionalidades você considera mais importantes em uma ferramenta de verificação de notícias? 
+            Quais funcionalidades você considera mais importantes em uma ferramenta de verificação de notícias?
             <span class="required">*</span><br>
             <small>(Selecione pelo menos uma opção)</small>
         </label>
         <div class="all-questions__options">
-            <label>
-                <input type="checkbox"
-                    [checked]="allQuestionsForm.value['functionalities']?.includes('Verificação automática de links e textos')"
-                    (change)="onCheckboxChange($event, 'functionalities')"
-                    value="Verificação automática de links e textos" />
-                Verificação automática de links e textos
-            </label>
-            <label>
-                <input type="checkbox"
-                    [checked]="allQuestionsForm.value['functionalities']?.includes('Alertas de notícias suspeitas')"
-                    (change)="onCheckboxChange($event, 'functionalities')" value="Alertas de notícias suspeitas" />
-                Alertas de notícias suspeitas
-            </label>
-            <label>
-                <input type="checkbox"
-                    [checked]="allQuestionsForm.value['functionalities']?.includes('Explicação do motivo da notícia ser considerada falsa')"
-                    (change)="onCheckboxChange($event, 'functionalities')"
-                    value="Explicação do motivo da notícia ser considerada falsa" />
-                Explicação do motivo da notícia ser considerada falsa
-            </label>
-            <label>
-                <input type="checkbox"
-                    [checked]="allQuestionsForm.value['functionalities']?.includes('Sugestão de fontes confiáveis')"
-                    (change)="onCheckboxChange($event, 'functionalities')" value="Sugestão de fontes confiáveis" />
-                Sugestão de fontes confiáveis
+            <label *ngFor="let option of functionalitiesOptions">
+                <input type="checkbox" [checked]="allQuestionsForm.value['functionalities']?.includes(option)"
+                    (change)="onCheckboxChange($event, 'functionalities')" [value]="option" />
+                {{ option }}
             </label>
             <!-- Comentado Enquanto Método onOtherInputChange com problema -->
             <!-- <label class="all-questions__other">
@@ -119,35 +75,15 @@
 
     <div class="all-questions__group">
         <label class="all-questions__label">
-            Quais são seus maiores receios em relação ao uso de uma ferramenta de IA para verificação de notícias? 
+            Quais são seus maiores receios em relação ao uso de uma ferramenta de IA para verificação de notícias?
             <span class="required">*</span><br>
             <small>(Selecione pelo menos uma opção)</small>
         </label>
         <div class="all-questions__options">
-            <label>
-                <input type="checkbox"
-                    [checked]="allQuestionsForm.value['biggestConcerns']?.includes('Privacidade dos meus dados')"
-                    (change)="onCheckboxChange($event, 'biggestConcerns')" value="Privacidade dos meus dados" />
-                Privacidade dos meus dados
-            </label>
-            <label>
-                <input type="checkbox"
-                    [checked]="allQuestionsForm.value['biggestConcerns']?.includes('Falhas na identificação de fake news')"
-                    (change)="onCheckboxChange($event, 'biggestConcerns')"
-                    value="Falhas na identificação de fake news" />
-                Falhas na identificação de fake news
-            </label>
-            <label>
-                <input type="checkbox"
-                    [checked]="allQuestionsForm.value['biggestConcerns']?.includes('Lentidão ou dificuldade de uso')"
-                    (change)="onCheckboxChange($event, 'biggestConcerns')" value="Lentidão ou dificuldade de uso" />
-                Lentidão ou dificuldade de uso
-            </label>
-            <label>
-                <input type="checkbox"
-                    [checked]="allQuestionsForm.value['biggestConcerns']?.includes('Não tenho receios')"
-                    (change)="onCheckboxChange($event, 'biggestConcerns')" value="Não tenho receios" />
-                Não tenho receios
+            <label *ngFor="let option of biggestConcernsOptions">
+                <input type="checkbox" [checked]="allQuestionsForm.value['biggestConcerns']?.includes(option)"
+                    (change)="onCheckboxChange($event, 'biggestConcerns')" [value]="option" />
+                {{ option }}
             </label>
             <!-- Comentado Enquanto Método onOtherInputChange com problema -->
             <!-- <label class="all-questions__other">

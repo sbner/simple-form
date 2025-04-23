@@ -10,6 +10,8 @@ Este é um projeto desenvolvido em **Angular** que utiliza **Reactive Forms** pa
 
 A proposta deste projeto é coletar informações e opiniões dos usuários sobre o combate às fake news utilizando inteligência artificial. Os formulários são construídos usando a abordagem de [Reactive Forms do Angular](https://angular.dev/guide/forms/reactive-forms), que oferece maior controle sobre validações, estrutura e manipulação dos dados dos formulários.
 
+**Para fins de teste toda vez que um novo form é enviado é feito um log no console para verificação e validação dos dados armazenados.**
+
 ## Tecnologias Utilizadas
 
 - [Angular](https://angular.dev/)

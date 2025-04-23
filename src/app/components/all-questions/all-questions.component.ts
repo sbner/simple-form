@@ -22,6 +22,39 @@ export class AllQuestionsComponent {
     biggestConcerns: new FormControl<string[]>([], Validators.required),
   });
 
+  everWorriedOptions = [
+    { value: 'sim', label: 'Sim' },
+    { value: 'nao', label: 'Não' },
+    { value: 'nao-sei', label: 'Não sei' }
+  ];
+
+  fakeNewsFrequencyOptions = [
+    { value: 'sempre', label: 'Sempre' },
+    { value: 'as-vezes', label: 'Às vezes' },
+    { value: 'raramente', label: 'Raramente' },
+    { value: 'nunca', label: 'Nunca' }
+  ];
+
+  interestedInAIOptions = [
+    { value: 'sim', label: 'Sim' },
+    { value: 'nao', label: 'Não' },
+    { value: 'talvez', label: 'Talvez' }
+  ];
+
+  functionalitiesOptions = [
+    'Verificação automática de links e textos',
+    'Alertas de notícias suspeitas',
+    'Explicação do motivo da notícia ser considerada falsa',
+    'Sugestão de fontes confiáveis'
+  ];
+  
+  biggestConcernsOptions = [
+    'Privacidade dos meus dados',
+    'Falhas na identificação de fake news',
+    'Lentidão ou dificuldade de uso',
+    'Não tenho receios'
+  ];
+
   // Guarda temporariamente o valor do campo 'Outro'
   otherInputs: { [key: string]: string } = {
     functionalities: '',
