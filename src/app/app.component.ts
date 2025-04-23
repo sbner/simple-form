@@ -40,8 +40,9 @@ export class AppComponent {
   }
 
   handleFormSubmit(event: any) {
-    console.log(event);
+    console.log('received: ',event);
     this.researcherForm.patchValue(event);
+    console.log('current form: ', this.researcherForm.value);
     this.nextStep();
   }
 }
