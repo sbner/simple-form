@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-all-questions',
@@ -15,11 +15,11 @@ export class AllQuestionsComponent {
   @Output() buttonClick: EventEmitter<any> = new EventEmitter<any>();
 
   allQuestionsForm = new FormGroup({
-    everWorried: new FormControl(''),
-    fakeNewsFrequency: new FormControl(''),
-    interestedInAI: new FormControl(''),
-    functionalities: new FormControl<string[]>([]),
-    biggestConcerns: new FormControl<string[]>([]),
+    everWorried: new FormControl('', Validators.required),
+    fakeNewsFrequency: new FormControl('', Validators.required),
+    interestedInAI: new FormControl('', Validators.required),
+    functionalities: new FormControl<string[]>([], Validators.required),
+    biggestConcerns: new FormControl<string[]>([], Validators.required),
   });
 
   // Guarda temporariamente o valor do campo 'Outro'
@@ -31,9 +31,9 @@ export class AllQuestionsComponent {
   onCheckboxChange(event: any, controlName: 'functionalities' | 'biggestConcerns') {
     const control = this.allQuestionsForm.get(controlName) as FormControl<string[]>;
     let selected = control.value ? [...control.value] : [];
-  
+
     const value = event.target.value;
-  
+
     if (event.target.checked) {
       // Adiciona se não existir
       if (value && !selected.includes(value)) {
@@ -45,18 +45,18 @@ export class AllQuestionsComponent {
     }
     control.setValue(selected);
   }
-  
+
   // Método com problema. Necessário ajustar.
   onOtherInputChange(controlName: 'functionalities' | 'biggestConcerns', event: Event) {
     const value = (event.target as HTMLInputElement).value;
     this.otherInputs[controlName] = value;
-  
+
     const control = this.allQuestionsForm.get(controlName) as FormControl<string[]>;
     let selected = control.value ? [...control.value] : [];
-  
+
     // Verifica se existe algum valor "Outro:" no array
     const outroIndex = selected.findIndex(v => v.startsWith('Outro:'));
-  
+
     if (outroIndex !== -1) {
       // Se já existe, atualiza o valor
       if (value) {
@@ -69,15 +69,16 @@ export class AllQuestionsComponent {
       // Se não existe e o input não está vazio, adiciona
       selected.push(`Outro: ${value}`);
     }
-  
+
     control.setValue(selected);
   }
-  
+
 
   submit() {
-    // Garante que o valor do campo "Outro" está no array se o checkbox estiver marcado
-    this.captureCheckboxArrays();
-    this.buttonClick.emit(this.allQuestionsForm.value);
+    if (this.allQuestionsForm.valid) {
+      this.captureCheckboxArrays();
+      this.buttonClick.emit(this.allQuestionsForm.value);
+    }
   }
 
   // Trata os arrays para garantir que o campo "Outro" está incluso se marcado

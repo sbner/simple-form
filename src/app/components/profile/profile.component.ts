@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -14,13 +14,15 @@ export class ProfileComponent {
   @Output() buttonClick = new EventEmitter<any>();
 
   profileForm = new FormGroup({
-    name: new FormControl(''),
-    dateOfBirth: new FormControl(''),
-    email: new FormControl('')
+    name: new FormControl('', Validators.required),
+    dateOfBirth: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
   });
 
   submit() {
-    this.buttonClick.emit(this.profileForm.value);
+    if (this.profileForm.valid) {
+      this.buttonClick.emit(this.profileForm.value);
+    }
   }
 
 }

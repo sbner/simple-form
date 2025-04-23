@@ -125,6 +125,9 @@
         color: #64748b;
         cursor: not-allowed;
         box-shadow: none;
+        opacity: 0.85;
+        transform: none;
+        transition: background 0.2s, color 0.2s, opacity 0.2s;
       }
     }
   }
