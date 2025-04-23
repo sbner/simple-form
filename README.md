@@ -1,6 +1,6 @@
 # Ferramenta de Verificação de Fake News com IA
 
-👉 **[Acesse a versão online do projeto aqui](COLE_AQUI_O_LINK_DO_GITHUB_PAGES)**
+👉 **[Acesse a versão online do projeto aqui](https://sbner.github.io/simple-form/)**
 
 ---
 
@@ -52,7 +52,7 @@ O projeto estará disponível em [http://localhost:4200](http://localhost:4200)
 
 O projeto pode ser publicado facilmente no GitHub Pages. Após o deploy, acesse pelo link abaixo:
 
-👉 [Acesse a versão online do projeto aqui](COLE_AQUI_O_LINK_DO_GITHUB_PAGES)
+👉 [Acesse a versão online do projeto aqui](https://sbner.github.io/simple-form/)
 
 ---
 
